@@ -9,7 +9,7 @@ class NOC(models.Model):
                            null=False,
                            verbose_name="National Olympic Committee")
     country_name = models.TextField(max_length=50, verbose_name="Country name of NOC")
-    notes = models.TextField(max_length=80, verbose_name="Notes about NOC or Country.")
+    notes = models.TextField(max_length=80, verbose_name="Notes about NOC or Country.", null=True, blank=True)
 
 
 # Model of Athlete information's in the Olympic Events.
