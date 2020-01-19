@@ -1,0 +1,475 @@
+{
+	"info": {
+		"_postman_id": "9bfea2e3-8e86-4389-b7e1-c7613dcb507f",
+		"name": "Olympic 120 Years Numbers",
+		"description": "## Olympic 120 years\n\nUma API que consome e disponibiliza dados históricos dos Jogos Olímpicos modernos, incluindo todos os Jogos de Atenas 1896 ao Rio 2016.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "NOC ( National Olympic Committees )",
+			"item": [
+				{
+					"name": "Listar Comitês",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/nocs?",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"nocs"
+							],
+							"query": [
+								{
+									"key": "noc",
+									"value": "BRA",
+									"disabled": true
+								},
+								{
+									"key": "country_name",
+									"value": "Brazil",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Listagem de todos os comitês participantes dos jogos olímpicos modernos."
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Comitê",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"noc\": \"<Código de três letras do comitê>\",\r\n    \"country_name\": \"<Nome do País>\",\r\n    \"notes\": \"<Notas sobre o comitê>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/nocs",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"nocs"
+							]
+						},
+						"description": "Adicionar um novo comitê olímpico."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Comitê por código",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/nocs/BRA",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"nocs",
+								"BRA"
+							]
+						},
+						"description": "Lista um comitê a partir do código do mesmo."
+					},
+					"response": [
+						{
+							"name": "Listar Comitê por código",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/v1/nocs/BRA",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"v1",
+										"nocs",
+										"BRA"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 18 Jan 2020 16:19:53 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"noc\": \"BRA\",\n    \"country_name\": \"Brazil\",\n    \"notes\": \"Country of Football\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar informações de um comitê",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"noc\": \"BRA\",\r\n    \"country_name\": \"Brazil\",\r\n    \"notes\": \"Country of Football\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/nocs/BRA",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"nocs",
+								"BRA"
+							]
+						},
+						"description": "Atualiza informações sobre o comitê especificado."
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar um comitê",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/nocs/BRA",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"nocs",
+								"BRA"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Athletes",
+			"item": [
+				{
+					"name": "Listar Atletas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/athletes/?",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"athletes",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Nome do Atleta",
+									"disabled": true
+								},
+								{
+									"key": "sex",
+									"value": "Male",
+									"disabled": true
+								},
+								{
+									"key": "age",
+									"value": "14",
+									"disabled": true
+								},
+								{
+									"key": "team",
+									"value": "BRA",
+									"disabled": true
+								},
+								{
+									"key": "sport",
+									"value": "Basketball",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Atleta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"noc\": \"CHN\",\r\n    \"athlete_id\": 165,\r\n    \"name\": \"Nome do Atleta\",\r\n    \"sex\": \"M or F\",\r\n    \"age\": \"23\",\r\n    \"height\": \"170\",\r\n    \"weight\": \"60\",\r\n    \"team\": \"China\",\r\n    \"games\": \"2012 Summer\",\r\n    \"year\": \"2012\",\r\n    \"season\": \"Summer\",\r\n    \"city\": \"London\",\r\n    \"sport\": \"Judo\",\r\n    \"event\": \"Judo Extra-Lightweight\",\r\n    \"medal\": \"NA or Gold or Silver or Bronze\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/athletes/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"athletes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Atleta por ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "726277aa-245f-42ac-84f5-637d90b68924",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/v1/athletes/189/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"athletes",
+								"189",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Listar Atleta por ID",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 189,\r\n    \"noc\": \"USA\",\r\n    \"athlete_id\": 7,\r\n    \"name\": \"John Aalberg\",\r\n    \"sex\": \"M\",\r\n    \"age\": \"33\",\r\n    \"height\": \"183\",\r\n    \"weight\": \"72\",\r\n    \"team\": \"United States\",\r\n    \"games\": \"1994 Winter\",\r\n    \"year\": \"1994\",\r\n    \"season\": \"Winter\",\r\n    \"city\": \"Lillehammer\",\r\n    \"sport\": \"Cross Country Skiing\",\r\n    \"event\": \"Cross Country Skiing Men's 30 kilometres\",\r\n    \"medal\": \"NA\\n\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/v1/athletes/189/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"v1",
+										"athletes",
+										"189",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 18 Jan 2020 18:54:19 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "304"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 189,\n    \"noc\": \"USA\",\n    \"athlete_id\": 7,\n    \"name\": \"John Aalberg\",\n    \"sex\": \"M\",\n    \"age\": \"33\",\n    \"height\": \"183\",\n    \"weight\": \"72\",\n    \"team\": \"United States\",\n    \"games\": \"1994 Winter\",\n    \"year\": \"1994\",\n    \"season\": \"Winter\",\n    \"city\": \"Lillehammer\",\n    \"sport\": \"Cross Country Skiing\",\n    \"event\": \"Cross Country Skiing Men's 30 kilometres\",\n    \"medal\": \"NA\\n\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar Atleta",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 189,\r\n    \"noc\": \"USA\",\r\n    \"athlete_id\": 7,\r\n    \"name\": \"John Aalberg\",\r\n    \"sex\": \"M\",\r\n    \"age\": \"33\",\r\n    \"height\": \"183\",\r\n    \"weight\": \"72\",\r\n    \"team\": \"United States\",\r\n    \"games\": \"1994 Winter\",\r\n    \"year\": \"1994\",\r\n    \"season\": \"Winter\",\r\n    \"city\": \"Lillehammer\",\r\n    \"sport\": \"Cross Country Skiing\",\r\n    \"event\": \"Cross Country Skiing Men's 30 kilometres\",\r\n    \"medal\": \"NA\\n\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/athletes/189/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"athletes",
+								"189",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar atleta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/athletes/189/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"athletes",
+								"189",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
