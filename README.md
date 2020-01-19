@@ -2,7 +2,7 @@
 
 ## Documentação da API
 
-A documentação (Swagger) da API estará na raiz do projeto em formato JSON e pode ser importada em qualquer programa que suporte o formato como: Postman ou Insomnia.
+A documentação (Swagger) da API estará na raiz do projeto na pasta documentation, a documentação está em formato JSON e pode ser importada em qualquer programa que suporte a importação nesse formato como: Postman ou Insomnia.
 Link público para documentação: https://www.getpostman.com/collections/c19f5cd95336dbc12a1e
 
 #### Url de acesso à API hospedada no heroku: https://olympic-numbers.herokuapp.com/v1
