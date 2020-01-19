@@ -25,7 +25,7 @@ class Athlete(models.Model):
         ('BRONZE', 'Bronze')
     )
 
-    athlete_id = models.IntegerField(verbose_name="Athlete ID",
+    athleteid = models.IntegerField(verbose_name="Athlete ID",
                                      max_length=None,
                                      blank=False, null=False)
 
