@@ -1,14 +1,20 @@
 # olympic_numbers
 
+## Documentação da API
+
+A documentação (Swagger) da API estará na raiz do projeto em formato JSON e pode ser importada em qualquer programa que suporte o formato como: Postman ou Insomnia.
+Link público para documentação: https://www.getpostman.com/collections/c19f5cd95336dbc12a1e
+
 #### Url de acesso à API hospedada no heroku: https://olympic-numbers.herokuapp.com/v1
 
+## Rodando projeto localmente
 ### Clonando a aplicação
 
 Clone a aplicação através do comando:
 ```bash
 > git clone https://github.com/equeirozdenoronha/olympic_numbers.git
 ```
-## Instalar e configurar ambiente virtual (virtualenv)
+### Instalar e configurar ambiente virtual (virtualenv)
 ```bash
 > pip install virtualenv
 
@@ -25,9 +31,9 @@ nome_da_virtualenv/Scripts/activate (Windows)
 ```
 ### Fazer as migrações
 ```bash
-python manage.py makemigrations
+> python manage.py makemigrations
 
-python manage.py migrate
+> python manage.py migrate
 ```
 
 ### Rodar Projeto
@@ -43,8 +49,3 @@ python manage.py migrate
 ```bash
 > python manage.py test
 ```
-
-## Documentação da API
-
-A documentação (Swagger) da API está na raiz do projeto em formato JSON e pode ser importada em qualquer programa que suporte o formato como: Postman ou Insomnia.
-Link público para documentação: https://www.getpostman.com/collections/c19f5cd95336dbc12a1e
