@@ -24,7 +24,7 @@ class Athlete(models.Model):
         ('SILVER', 'Silver'),
         ('BRONZE', 'Bronze')
     )
-    id = models.AutoField(primary_key=True)
+
     athlete_id = models.IntegerField(verbose_name="Athlete ID",
                                      max_length=None,
                                      blank=False, null=False)
