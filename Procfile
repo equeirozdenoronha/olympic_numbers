@@ -1,0 +1,1 @@
+web: gunicorn olympic_numbers.wsgi --log-file -
