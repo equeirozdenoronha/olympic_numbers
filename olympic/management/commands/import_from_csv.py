@@ -63,5 +63,3 @@ class Command(BaseCommand):
         """
         self.import_noc_from_csv_file_noc()
         # self.import_noc_from_csv_file_athlete()
-
-
