@@ -61,5 +61,10 @@ class Command(BaseCommand):
         """
         Call the function to import data
         """
-        # self.import_noc_from_csv_file_noc()
+        print("Importing NOC DATA")
+        self.import_noc_from_csv_file_noc()
+        print("------ Finish ------")
+        print("Importing Athlete DATA")
         self.import_noc_from_csv_file_athlete()
+        print("------ Finish ------")
+        return
