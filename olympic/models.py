@@ -26,18 +26,16 @@ class Athlete(models.Model):
     )
 
     athlete_id = models.IntegerField(verbose_name="Athlete ID",
-                                     primary_key=True,
                                      max_length=None,
-                                     unique=True,
                                      blank=False, null=False)
 
     name = models.TextField(verbose_name="Name of Athlete", max_length=80, blank=False, null=False)
     sex = models.TextField(verbose_name="Sex of Athlete", max_length=6, choices=SEX_CHOICES)
-    age = models.IntegerField(verbose_name="Age of Athlete", blank=False, null=False)
-    height = models.IntegerField(verbose_name="Height of Athlete", blank=False, null=False)
-    weight = models.IntegerField(verbose_name="Weight of Athlete", blank=False, null=False)
+    age = models.TextField(verbose_name="Age of Athlete", blank=False, null=False)
+    height = models.TextField(verbose_name="Height of Athlete", blank=False, null=False)
+    weight = models.TextField(verbose_name="Weight of Athlete", blank=False, null=False)
     team = models.TextField(verbose_name="Team of Athlete", blank=False, null=False)
-    noc = models.ForeignKey(NOC, on_delete=models.CASCADE, related_name="NOC")
+    noc = models.ForeignKey(NOC, on_delete=models.CASCADE, db_column="noc")
     games = models.TextField(verbose_name="Year and season of event", max_length=20, blank=False, null=False)
     year = models.TextField(verbose_name="Year of Event", max_length=4, blank=False, null=False)
     season = models.TextField(verbose_name="Season of Event", max_length=15, blank=False, null=False)
