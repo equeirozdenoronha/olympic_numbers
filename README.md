@@ -1,6 +1,6 @@
 # olympic_numbers
 
-#### Url de acesso à API hospedada no heroku: //
+#### Url de acesso à API hospedada no heroku: https://olympic-numbers.herokuapp.com/v1
 
 ### Clonando a aplicação
 
