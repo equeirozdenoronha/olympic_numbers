@@ -16,3 +16,6 @@ class NOCModelTestCase(TestCase):
         self.assertEqual(us.country_name, 'United States')  # Expected
         self.assertIsNone(br.notes)
         self.assertIsNotNone(us.notes)
+
+class AthtleteModelTestCase(TestCase):
+    pass
