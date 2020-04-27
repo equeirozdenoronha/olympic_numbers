@@ -1,9 +1,7 @@
 from olympic.models import NOC, Athlete
 from olympic.serializers import NOCSerializer, AthleteSerializer
-from rest_framework.response import Response
 from rest_framework.filters import SearchFilter
 from rest_framework.pagination import LimitOffsetPagination
-from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 
